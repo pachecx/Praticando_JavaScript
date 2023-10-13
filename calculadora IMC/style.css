@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card{
+    background: orange;
+    width: 400px;
+    height: 550px;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin: 25px auto;
+    padding: 15px 25px;
+}
+
+.card h1{
+    text-align: center;
+    border-bottom: 4px solid black;
+    width: 100%;
+    margin-bottom: 35px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputs{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    margin:  auto;
+}
+
+.inputs input{
+    border-radius: 8px;
+    border: none;
+    height: 35px;
+}
+
+.inputs label{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.btn{
+    background: black;
+    color: orange;
+    height: 35px;
+    font-weight: 600;
+    font-size: 20px;
+    width: 250px;
+    margin: 30px auto;
+    border-radius: 8px;
+
+}
+
+.resultado{
+    background: black;
+    height: 150px;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.resultado span{
+    color: #FFF;
+    font-weight: 500;
+    font-size: 20px;
+}
