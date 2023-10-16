@@ -9,34 +9,72 @@ const btnGre = document.querySelector('.btnGre');
 const btnAu = document.querySelector('.btnAu');
 
 btnRed.addEventListener('click', function(){
+   vermelho()
+})
+
+btnYe.addEventListener('click', function(){
+    amarelo()
+})
+
+btnGre.addEventListener('click', function(){
+    verde()
+})
+
+function vermelho(){
     imgRed.classList.remove('hide')
 
     imgYe.classList.add('hide')
     imgGre.classList.add('hide')
     imgAu.classList.add('hide')
-})
+}
 
-btnYe.addEventListener('click', function(){
+function amarelo(){
     imgYe.classList.remove('hide')
     
     imgRed.classList.add('hide')
     imgGre.classList.add('hide')
     imgAu.classList.add('hide')
-})
+}
 
-btnGre.addEventListener('click', function(){
+function verde(){
     imgGre.classList.remove('hide')
     
     imgYe.classList.add('hide')
     imgRed.classList.add('hide')
     imgAu.classList.add('hide')
+}
+
+btnAu.addEventListener('click', function(){
+    auto()
 })
 
-btnAu.addEventListener('click', auto())
-
 function auto(){
-    setTimeout(() => {
+    i = 0;
+    if(i <= 2){
+        setTimeout(() => {
+            vermelho()
+            console.log('1')
+        }, 1000);
+            
+        setTimeout(() => {
+            amarelo()
+            console.log('2')
+        }, 2000);
         
+        setTimeout(() => {
+            verde()
+            console.log('3')
+            auto()
+        }, 3000);
+    }
 
-    }, 2000);
+    else{
+        console.log('parou')
+    }
+        
+    for (let i = 0; i <= 3; i++) {
+        console.log(`teste ${i}`) 
+    }
+
+    
 }
