@@ -44,37 +44,34 @@ function verde(){
     imgAu.classList.add('hide')
 }
 
-btnAu.addEventListener('click', function(){
-    auto()
-})
+let colorIndex = 0;
+let intervalId = null;
 
-function auto(){
-    i = 0;
-    if(i <= 2){
-        setTimeout(() => {
-            vermelho()
-            console.log('1')
-        }, 1000);
-            
-        setTimeout(() => {
-            amarelo()
-            console.log('2')
-        }, 2000);
-        
-        setTimeout(() => {
-            verde()
-            console.log('3')
-            auto()
-        }, 3000);
+const trafficLight = (event) => {
+    if (event && event.target && event.target.id in turnOn) {
+        stopAutomatic();
+        turnOn[event.target.id]();
     }
+};
 
-    else{
-        console.log('parou')
-    }
-        
-    for (let i = 0; i <= 3; i++) {
-        console.log(`teste ${i}`) 
-    }
+const nextIndex = () => colorIndex = colorIndex < 2 ? ++colorIndex : 0;
 
-    
-}
+const changeColor = () => {
+    const colors = ['red', 'yellow', 'green'];
+    const color = colors[colorIndex];
+    turnOn[color]();
+    nextIndex();
+};
+
+const stopAutomatic = () => {
+    clearInterval(intervalId);
+};
+
+const turnOn = {
+    'red': () => img.src = './assets/vermelho.png',
+    'yellow': () => img.src = './assets/amarelo.png',
+    'green': () => img.src = './assets/verde.png',
+    'automatic': () => intervalId = setInterval(changeColor, 1000)
+};
+
+btnAu.addEventListener('click', trafficLight);
