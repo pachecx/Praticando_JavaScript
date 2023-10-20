@@ -1,6 +1,8 @@
 // Seleção de elementos
 const formInput = document.querySelector('#multiplication-form');
 const multiplicateTable = document.querySelector('#multiplication-operations');
+const multiplicateTableSpan = document.querySelector('#multiplication-title span');
+
 let number = document.querySelector('#number');
 let multiplicator = document.querySelector('#multiplicator');
 
@@ -22,7 +24,7 @@ function createtable(number, multiplicador){
         const row = htmlTemplate.querySelector(".row")
         
         multiplicateTable.appendChild(row)
-        
+        multiplicateTableSpan.innerHTML = ` ${i}`
     };
 
 };
